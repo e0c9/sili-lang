@@ -1,0 +1,22 @@
+package me.tanyihao;
+
+public enum TokenType {
+  // 单字符 token
+  LEFT_PAREN, RIGHT_PAREN, LEFT_BRACE, RIGHT_BRACE,
+  COMMA, DOT, MINUS, PLUS, SEMICOLON, SLASH, STAR,
+
+  // 一个或两个字符 token
+  BANG, BANG_EQUAL,
+  EQUAL, EQUAL_EQUAL,
+  GREATER, GREATER_EQUAL,
+  LESS, LESS_EQUAL,
+
+  // 字面值
+  IDENTIFIER, STRING, NUMBER,
+
+  // 关键词 keyword
+  AND, CLASS, ELSE, FALSE, FUN, FOR, IF, SILI, OR,
+  PRINT, RETURN, SUPER, THIS, TRUE, VAR, WHILE,
+
+  EOF
+}
