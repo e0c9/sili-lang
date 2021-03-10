@@ -81,6 +81,8 @@ public class Scanner {
       case '/':
         if (match('/')) {
           while (peek() != '\n' && !isAtEnd()) advance();
+        } else if (match('*')) {
+          multiComment();
         } else {
           addToken(SLASH);
         }
@@ -102,6 +104,23 @@ public class Scanner {
           Sili.error(line, "Unexpected character " + c);
         }
         break;
+    }
+  }
+
+  private void multiComment() {
+    while (!isAtEnd()) {
+      if (peek() == '*' && peekNext() == '/') {
+        advance();
+        advance();
+        break;
+      }
+      if (peek() == '\n') {
+        line++;
+      }
+      advance();
+    }
+    if (isAtEnd()) {
+      Sili.error(line, "Unterminated comment.");
     }
   }
 
